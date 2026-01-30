@@ -1,49 +1,4 @@
-const fs = require("fs");
-
-EXTRACTION_VALUES = {
-  "applicant": {
-    "first_name": "John",
-    "last_name": "Smith",
-    "date_of_birth": "1988-06-15",
-    "nationality": "British",
-    "marital_status": "Married",
-    "number_of_dependants": 2,
-    "national_insurance_number": "AB123456C"
-  },
-  "contact_information": {
-    "email_address": "john.smith@email.com",
-    "mobile_phone_number": "07123456789"
-  },
-  "address_details": {
-    "current_address": "12 High Street, London",
-    "postcode": "SW1A 1AA",
-    "residential_status": "Owner Occupier",
-    "time_at_current_address_years": 5
-  },
-  "employment_income": {
-    "employment_status": "Employed",
-    "employer_name": "ABC Ltd",
-    "job_title": "Software Engineer",
-    "annual_income": 65000,
-    "other_income": 5000
-  },
-  "mortgage_details": {
-    "mortgage_type": "Purchase",
-    "application_type": "Residential",
-    "property_value": 350000,
-    "purchase_price": 345000,
-    "loan_amount_requested": 300000,
-    "deposit_amount": 45000,
-    "term_years": 25,
-    "repayment_type": "Repayment"
-  },
-  "credit_declarations": {
-    "credit_commitments_monthly": 750,
-    "adverse_credit_history": false,
-    "source_of_deposit": "Savings",
-    "consent_to_credit_check": true
-  }
-}
+import fs from "fs";
 
 function normalizeFieldName(name) {
   return name
@@ -123,13 +78,12 @@ function extractFields(obj, result = {}, path = []) {
   return result;
 }
 
-const normalizedFields = extractFields(EXTRACTION_VALUES);
-console.log(normalizedFields);
+export function enrichFields(extractionValues) {
+    const normalizedFields = extractFields(extractionValues);
+    return normalizedFields;
+}
 
-const jsonData = JSON.stringify(normalizedFields);
-
-fs.writeFile("data/enriched_data.json", jsonData, function(err) {
-    if (err) {
-        console.log(err);
-    }
-});
+// optional helper
+export function writeEnrichedData(data, path = "data/enriched_data.json") {
+    fs.writeFileSync(path, JSON.stringify(data, null, 2));
+}

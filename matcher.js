@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const INTERNAL_FIELDS = [
     {
@@ -446,28 +446,66 @@ function normalize(str) {
     .trim();
 }
 
-const jsonString = fs.readFileSync("./data/tagged_data.json", "utf8");
-const TAGGED_DATA = JSON.parse(jsonString);
-for (const [xKey, xField] of Object.entries(TAGGED_DATA)) {
-  console.log(`\n External field: ${xKey}`);
+export function matchFields(taggedData) {
+    const matches = {};
 
-  const results = INTERNAL_FIELDS
-    .map(yField => {
-      const breakdown = confidenceBreakdown(xField, yField);
-      return {
-        internal_key: yField.key,
-        ...breakdown
-      };
-    })
-    .filter(r => r.total > 0)
-    .sort((a, b) => b.total - a.total);
+    for (const [xKey, xField] of Object.entries(taggedData)) {
+        const results = INTERNAL_FIELDS
+        .map(yField => {
+            const breakdown = confidenceBreakdown(xField, yField);
+            return {
+            internal_key: yField.key,
+            ...breakdown
+            };
+        })
+        .filter(r => r.total > 0)
+        .sort((a, b) => b.total - a.total);
 
-  results.forEach(r => {
-    console.log(
-      `  -> ${r.internal_key}: ${r.total}\n` +
-      `     name:   ${r.components.name} (${r.weighted.name})\n` +
-      `     tags:   ${r.components.tags} (${r.weighted.tags})\n` +
-      `     length: ${r.components.length} (${r.weighted.length})\n`
-    );
-  });
+        matches[xKey] = results;
+    }
+
+    return matches;
 }
+
+export function printMatches(matches) {
+    for (const [key, results] of Object.entries(matches)) {
+        console.log(`\n External field: ${key}`);
+        results.forEach(r => {
+        console.log(
+            `  -> ${r.internal_key}: ${r.total}\n` +
+            `     name:   ${r.components.name} (${r.weighted.name})\n` +
+            `     tags:   ${r.components.tags} (${r.weighted.tags})\n` +
+            `     length: ${r.components.length} (${r.weighted.length})\n`
+        );
+        });
+    }
+}
+
+export function writeMatches(
+    matches,
+    {
+        path = "data/matches.json",
+        topN = null,      // e.g. 2 to keep only top 2
+        minScore = 0      // e.g. 0.7 to filter low junk
+    } = {}
+    ) {
+    const output = {};
+
+    for (const [externalKey, results] of Object.entries(matches)) {
+        const simplified = {};
+
+        results
+        .filter(r => r.total >= minScore)
+        .slice(0, topN ?? results.length)
+        .forEach(r => {
+            simplified[r.internal_key] = Number(r.total.toFixed(4));
+        });
+
+        if (Object.keys(simplified).length > 0) {
+        output[externalKey] = simplified;
+        }
+    }
+
+    fs.writeFileSync(path, JSON.stringify(output, null, 2));
+}
+

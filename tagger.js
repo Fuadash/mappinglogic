@@ -1,4 +1,4 @@
-const fs = require("fs/promises");
+import fs from "fs/promises";
 
 const AVAILABLE_TAGS = [
   "identity",
@@ -286,17 +286,11 @@ async function llmCallOllama({ system, user }) {
   return data.response;
 }
 
+export async function tagFields(fields, llmFn) {
+    await tagAllFields(fields, AVAILABLE_TAGS, llmCallOllama);
+    return fields;
+}
 
-(async () => {
-    IMPORTED_FIELDS = await loadFields();
-    await tagAllFields(IMPORTED_FIELDS, AVAILABLE_TAGS, llmCallOllama);
-    console.log(IMPORTED_FIELDS)
-    
-    const jsonData = JSON.stringify(IMPORTED_FIELDS);
-    
-    fs.writeFile("data/tagged_data.json", jsonData, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-})();
+export function writeTaggedData(fields, path = "data/tagged_data.json") {
+    fs.writeFile(path, JSON.stringify(fields, null, 2));
+}

@@ -1,0 +1,95 @@
+{
+  "first_name": {
+    "first_name": 1,
+    "last_name": 0.94
+  },
+  "last_name": {
+    "last_name": 1,
+    "first_name": 0.94
+  },
+  "date_of_birth": {
+    "date_of_birth": 1
+  },
+  "nationality": {
+    "nationality": 1
+  },
+  "marital_status": {
+    "marital_status": 1
+  },
+  "number_of_dependants": {
+    "number_of_dependants": 1
+  },
+  "national_insurance_number": {
+    "national_insurance_number": 0.8123
+  },
+  "mobile_phone_number": {
+    "mobile_phone_number": 1
+  },
+  "residential_status": {
+    "residential_status": 0.7977,
+    "application_type": 0.57
+  },
+  "time_at_current_address_years": {
+    "time_at_current_address_years": 0.7868,
+    "term_years": 0.57
+  },
+  "employment_status": {
+    "employment_status": 1
+  },
+  "employer_name": {
+    "first_name": 0.69,
+    "last_name": 0.69
+  },
+  "job_title": {
+    "job_title": 1
+  },
+  "annual_income": {
+    "annual_income": 0.975,
+    "other_income": 0.7318
+  },
+  "other_income": {
+    "other_income": 1,
+    "annual_income": 0.7301
+  },
+  "mortgage_type": {
+    "mortgage_type": 0.9667
+  },
+  "application_type": {
+    "application_type": 0.95
+  },
+  "property_value": {
+    "property_value": 0.9667
+  },
+  "purchase_price": {
+    "purchase_price": 0.9667
+  },
+  "loan_amount_requested": {
+    "loan_amount_requested": 0.9667
+  },
+  "deposit_amount": {
+    "deposit_amount": 0.9667
+  },
+  "term_years": {
+    "term_years": 0.9667,
+    "time_at_current_address_years": 0.57
+  },
+  "repayment_type": {
+    "repayment_type": 0.9667
+  },
+  "credit_commitments_monthly": {
+    "credit_commitments_monthly": 0.975
+  },
+  "adverse_credit_history": {
+    "adverse_credit_history": 1,
+    "consent_to_credit_check": 0.7301
+  },
+  "source_of_deposit": {
+    "source_of_deposit": 0.8303,
+    "nationality": 0.57,
+    "country_of_birth": 0.57
+  },
+  "consent_to_credit_check": {
+    "consent_to_credit_check": 0.975,
+    "adverse_credit_history": 0.89
+  }
+}
