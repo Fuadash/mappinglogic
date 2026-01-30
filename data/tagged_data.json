@@ -1,0 +1,427 @@
+{
+    "first_name": {
+        "raw_field_name": "first_name",
+        "normalized_field_name": "first name",
+        "value": "John",
+        "length": 4,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "applicant.first_name",
+        "tags": [
+            "personal_name",
+            "personal_details",
+            "identity"
+        ]
+    },
+    "last_name": {
+        "raw_field_name": "last_name",
+        "normalized_field_name": "last name",
+        "value": "Smith",
+        "length": 5,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "applicant.last_name",
+        "tags": [
+            "personal_name",
+            "personal_details",
+            "identity"
+        ]
+    },
+    "date_of_birth": {
+        "raw_field_name": "date_of_birth",
+        "normalized_field_name": "date of birth",
+        "value": "1988-06-15",
+        "length": 10,
+        "observed_type": "string",
+        "semantic_type": "date",
+        "path": "applicant.date_of_birth",
+        "tags": [
+            "date_of_birth",
+            "personal_details",
+            "identity"
+        ]
+    },
+    "nationality": {
+        "raw_field_name": "nationality",
+        "normalized_field_name": "nationality",
+        "value": "British",
+        "length": 7,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "applicant.nationality",
+        "tags": [
+            "nationality",
+            "citizenship",
+            "personal_details",
+            "identity"
+        ]
+    },
+    "marital_status": {
+        "raw_field_name": "marital_status",
+        "normalized_field_name": "marital status",
+        "value": "Married",
+        "length": 7,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "applicant.marital_status",
+        "tags": [
+            "marital_status",
+            "personal_details"
+        ]
+    },
+    "number_of_dependants": {
+        "raw_field_name": "number_of_dependants",
+        "normalized_field_name": "number of dependants",
+        "value": "2",
+        "length": 1,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "applicant.number_of_dependants",
+        "tags": [
+            "dependents",
+            "household",
+            "personal_details"
+        ]
+    },
+    "national_insurance_number": {
+        "raw_field_name": "national_insurance_number",
+        "normalized_field_name": "national insurance number",
+        "value": "AB123456C",
+        "length": 9,
+        "observed_type": "string",
+        "semantic_type": "numbers_and_letters",
+        "path": "applicant.national_insurance_number",
+        "tags": [
+            "identity",
+            "identity_verification",
+            "kyc",
+            "aml",
+            "personal_details"
+        ]
+    },
+    "email_address": {
+        "raw_field_name": "email_address",
+        "normalized_field_name": "email address",
+        "value": "john.smith@email.com",
+        "length": 20,
+        "observed_type": "string",
+        "semantic_type": "unknown",
+        "path": "contact_information.email_address",
+        "tags": [
+            "contact_information",
+            "email"
+        ]
+    },
+    "mobile_phone_number": {
+        "raw_field_name": "mobile_phone_number",
+        "normalized_field_name": "mobile phone number",
+        "value": "07123456789",
+        "length": 11,
+        "observed_type": "string",
+        "semantic_type": "number",
+        "path": "contact_information.mobile_phone_number",
+        "tags": [
+            "contact_information",
+            "mobile",
+            "phone_number"
+        ]
+    },
+    "current_address": {
+        "raw_field_name": "current_address",
+        "normalized_field_name": "current address",
+        "value": "12 High Street, London",
+        "length": 22,
+        "observed_type": "string",
+        "semantic_type": "unknown",
+        "path": "address_details.current_address",
+        "tags": [
+            "address",
+            "current_address"
+        ]
+    },
+    "postcode": {
+        "raw_field_name": "postcode",
+        "normalized_field_name": "postcode",
+        "value": "SW1A 1AA",
+        "length": 8,
+        "observed_type": "string",
+        "semantic_type": "numbers_and_letters",
+        "path": "address_details.postcode",
+        "tags": [
+            "address",
+            "postcode"
+        ]
+    },
+    "residential_status": {
+        "raw_field_name": "residential_status",
+        "normalized_field_name": "residential status",
+        "value": "Owner Occupier",
+        "length": 14,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "address_details.residential_status",
+        "tags": [
+            "residency_status",
+            "address_history",
+            "personal_details"
+        ]
+    },
+    "time_at_current_address_years": {
+        "raw_field_name": "time_at_current_address_years",
+        "normalized_field_name": "time at current address years",
+        "value": "5",
+        "length": 1,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "address_details.time_at_current_address_years",
+        "tags": [
+            "residency_duration",
+            "address_history",
+            "current_address"
+        ]
+    },
+    "employment_status": {
+        "raw_field_name": "employment_status",
+        "normalized_field_name": "employment status",
+        "value": "Employed",
+        "length": 8,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "employment_income.employment_status",
+        "tags": [
+            "employment",
+            "employment_status"
+        ]
+    },
+    "employer_name": {
+        "raw_field_name": "employer_name",
+        "normalized_field_name": "employer name",
+        "value": "ABC Ltd",
+        "length": 7,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "employment_income.employer_name",
+        "tags": [
+            "employment",
+            "employer"
+        ]
+    },
+    "job_title": {
+        "raw_field_name": "job_title",
+        "normalized_field_name": "job title",
+        "value": "Software Engineer",
+        "length": 17,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "employment_income.job_title",
+        "tags": [
+            "employment",
+            "job_title",
+            "occupation"
+        ]
+    },
+    "annual_income": {
+        "raw_field_name": "annual_income",
+        "normalized_field_name": "annual income",
+        "value": "65000",
+        "length": 5,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "employment_income.annual_income",
+        "tags": [
+            "income",
+            "annual_income",
+            "primary_income",
+            "employment",
+            "financial"
+        ]
+    },
+    "other_income": {
+        "raw_field_name": "other_income",
+        "normalized_field_name": "other income",
+        "value": "5000",
+        "length": 4,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "employment_income.other_income",
+        "tags": [
+            "income",
+            "secondary_income",
+            "financial"
+        ]
+    },
+    "mortgage_type": {
+        "raw_field_name": "mortgage_type",
+        "normalized_field_name": "mortgage type",
+        "value": "Purchase",
+        "length": 8,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "mortgage_details.mortgage_type",
+        "tags": [
+            "mortgage",
+            "mortgage_application",
+            "mortgage_type"
+        ]
+    },
+    "application_type": {
+        "raw_field_name": "application_type",
+        "normalized_field_name": "application type",
+        "value": "Residential",
+        "length": 11,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "mortgage_details.application_type",
+        "tags": [
+            "mortgage",
+            "mortgage_application"
+        ]
+    },
+    "property_value": {
+        "raw_field_name": "property_value",
+        "normalized_field_name": "property value",
+        "value": "350000",
+        "length": 6,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "mortgage_details.property_value",
+        "tags": [
+            "property_details",
+            "property_value",
+            "financial",
+            "mortgage_application"
+        ]
+    },
+    "purchase_price": {
+        "raw_field_name": "purchase_price",
+        "normalized_field_name": "purchase price",
+        "value": "345000",
+        "length": 6,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "mortgage_details.purchase_price",
+        "tags": [
+            "property_details",
+            "property_value",
+            "financial",
+            "mortgage_application"
+        ]
+    },
+    "loan_amount_requested": {
+        "raw_field_name": "loan_amount_requested",
+        "normalized_field_name": "loan amount requested",
+        "value": "300000",
+        "length": 6,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "mortgage_details.loan_amount_requested",
+        "tags": [
+            "mortgage",
+            "mortgage_application",
+            "loan_amount",
+            "financial"
+        ]
+    },
+    "deposit_amount": {
+        "raw_field_name": "deposit_amount",
+        "normalized_field_name": "deposit amount",
+        "value": "45000",
+        "length": 5,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "mortgage_details.deposit_amount",
+        "tags": [
+            "mortgage",
+            "mortgage_application",
+            "deposit",
+            "financial"
+        ]
+    },
+    "term_years": {
+        "raw_field_name": "term_years",
+        "normalized_field_name": "term years",
+        "value": "25",
+        "length": 2,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "mortgage_details.term_years",
+        "tags": [
+            "mortgage",
+            "mortgage_application",
+            "term_length"
+        ]
+    },
+    "repayment_type": {
+        "raw_field_name": "repayment_type",
+        "normalized_field_name": "repayment type",
+        "value": "Repayment",
+        "length": 9,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "mortgage_details.repayment_type",
+        "tags": [
+            "mortgage",
+            "mortgage_application",
+            "repayment_type"
+        ]
+    },
+    "credit_commitments_monthly": {
+        "raw_field_name": "credit_commitments_monthly",
+        "normalized_field_name": "credit commitments monthly",
+        "value": "750",
+        "length": 3,
+        "observed_type": "number",
+        "semantic_type": "number",
+        "path": "credit_declarations.credit_commitments_monthly",
+        "tags": [
+            "credit_commitments",
+            "outgoings",
+            "expenses",
+            "financial"
+        ]
+    },
+    "adverse_credit_history": {
+        "raw_field_name": "adverse_credit_history",
+        "normalized_field_name": "adverse credit history",
+        "value": "false",
+        "length": 5,
+        "observed_type": "boolean",
+        "semantic_type": "boolean",
+        "path": "credit_declarations.adverse_credit_history",
+        "tags": [
+            "credit_history",
+            "credit",
+            "financial"
+        ]
+    },
+    "source_of_deposit": {
+        "raw_field_name": "source_of_deposit",
+        "normalized_field_name": "source of deposit",
+        "value": "Savings",
+        "length": 7,
+        "observed_type": "string",
+        "semantic_type": "letters",
+        "path": "credit_declarations.source_of_deposit",
+        "tags": [
+            "financial",
+            "mortgage_application",
+            "deposit",
+            "declared"
+        ]
+    },
+    "consent_to_credit_check": {
+        "raw_field_name": "consent_to_credit_check",
+        "normalized_field_name": "consent to credit check",
+        "value": "true",
+        "length": 4,
+        "observed_type": "boolean",
+        "semantic_type": "boolean",
+        "path": "credit_declarations.consent_to_credit_check",
+        "tags": [
+            "consent",
+            "terms_acceptance",
+            "legal",
+            "regulatory"
+        ]
+    }
+}
