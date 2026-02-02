@@ -91,8 +91,9 @@
     "semantic_type": "numbers_and_letters",
     "path": "applicant.national_insurance_number",
     "tags": [
-      "identity",
       "identity_verification",
+      "identity",
+      "personal_details",
       "kyc",
       "aml"
     ]
@@ -103,7 +104,7 @@
     "value": "john.smith@email.com",
     "length": 20,
     "observed_type": "string",
-    "semantic_type": "unknown",
+    "semantic_type": "letters",
     "path": "contact_information.email_address",
     "tags": [
       "contact_information",
@@ -120,8 +121,8 @@
     "path": "contact_information.mobile_phone_number",
     "tags": [
       "contact_information",
-      "mobile",
-      "phone_number"
+      "phone_number",
+      "mobile"
     ]
   },
   "current_address": {
@@ -130,7 +131,7 @@
     "value": "12 High Street, London",
     "length": 22,
     "observed_type": "string",
-    "semantic_type": "unknown",
+    "semantic_type": "numbers_and_letters",
     "path": "address_details.current_address",
     "tags": [
       "address",
@@ -160,7 +161,8 @@
     "path": "address_details.residential_status",
     "tags": [
       "residency_status",
-      "personal_details"
+      "address",
+      "household"
     ]
   },
   "time_at_current_address_years": {
@@ -174,7 +176,7 @@
     "tags": [
       "residency_duration",
       "address_history",
-      "current_address"
+      "address"
     ]
   },
   "employment_status": {
@@ -227,7 +229,6 @@
     "path": "employment_income.annual_income",
     "tags": [
       "income",
-      "employment",
       "annual_income",
       "primary_income"
     ]
@@ -254,8 +255,8 @@
     "semantic_type": "letters",
     "path": "mortgage_details.mortgage_type",
     "tags": [
-      "mortgage",
       "mortgage_application",
+      "mortgage",
       "mortgage_type"
     ]
   },
@@ -268,7 +269,6 @@
     "semantic_type": "letters",
     "path": "mortgage_details.application_type",
     "tags": [
-      "mortgage",
       "mortgage_application"
     ]
   },
@@ -282,8 +282,7 @@
     "path": "mortgage_details.property_value",
     "tags": [
       "property_details",
-      "property_value",
-      "financial"
+      "property_value"
     ]
   },
   "purchase_price": {
@@ -296,8 +295,7 @@
     "path": "mortgage_details.purchase_price",
     "tags": [
       "property_details",
-      "purchase_price",
-      "financial"
+      "purchase_price"
     ]
   },
   "loan_amount_requested": {
@@ -309,8 +307,8 @@
     "semantic_type": "number",
     "path": "mortgage_details.loan_amount_requested",
     "tags": [
-      "mortgage",
       "mortgage_application",
+      "mortgage",
       "loan_amount"
     ]
   },
@@ -323,8 +321,8 @@
     "semantic_type": "number",
     "path": "mortgage_details.deposit_amount",
     "tags": [
-      "mortgage",
       "mortgage_application",
+      "mortgage",
       "deposit"
     ]
   },
@@ -337,8 +335,8 @@
     "semantic_type": "number",
     "path": "mortgage_details.term_years",
     "tags": [
-      "mortgage",
       "mortgage_application",
+      "mortgage",
       "term_length"
     ]
   },
@@ -351,8 +349,8 @@
     "semantic_type": "letters",
     "path": "mortgage_details.repayment_type",
     "tags": [
-      "mortgage",
       "mortgage_application",
+      "mortgage",
       "repayment_type"
     ]
   },
@@ -368,7 +366,7 @@
       "credit",
       "credit_commitments",
       "outgoings",
-      "financial"
+      "expenses"
     ]
   },
   "adverse_credit_history": {
@@ -393,10 +391,10 @@
     "semantic_type": "letters",
     "path": "credit_declarations.source_of_deposit",
     "tags": [
-      "mortgage",
       "mortgage_application",
-      "financial",
-      "aml"
+      "kyc",
+      "aml",
+      "financial"
     ]
   },
   "consent_to_credit_check": {
@@ -408,10 +406,11 @@
     "semantic_type": "boolean",
     "path": "credit_declarations.consent_to_credit_check",
     "tags": [
-      "legal",
       "consent",
       "credit",
-      "credit_history"
+      "credit_history",
+      "regulatory",
+      "communication_consent"
     ]
   }
 }

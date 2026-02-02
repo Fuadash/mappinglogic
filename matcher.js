@@ -57,15 +57,8 @@ const INTERNAL_FIELDS = [
         synonyms: ["national insurance number", "ni number", "nino", "insurance number"]
     },
     {
-        key: "uk_citizen",
-        type: "boolean",
-        expected_length: [1, 5],
-        tags: ["identity", "personal_details", "citizenship", "country"],
-        synonyms: ["uk citizen", "british citizen", "citizenship uk", "is uk citizen"]
-    },
-    {
         key: "email_address",
-        type: "email",
+        type: "numbers_and_letters",
         expected_length: [5, 254],
         tags: ["contact_information", "email"],
         synonyms: ["email", "email address", "e-mail"]
@@ -79,14 +72,14 @@ const INTERNAL_FIELDS = [
     },
     {
         key: "current_address",
-        type: "string",
+        type: "numbers_and_letters",
         expected_length: [10, 200],
         tags: ["address", "current_address"],
         synonyms: ["current address", "home address", "present address"]
     },
     {
         key: "postcode",
-        type: "string",
+        type: "numbers_and_letters",
         expected_length: [5, 8],
         tags: ["address", "postcode"],
         synonyms: ["postcode", "zip code", "postal code"]
@@ -96,7 +89,7 @@ const INTERNAL_FIELDS = [
         type: "letters",
         expected_length: [5, 30],
         tags: ["address", "residency_status"],
-        synonyms: ["residential status", "tenure", "owner occupier", "renting"]
+        synonyms: ["residential status", "tenure"]
     },
     {
         key: "time_at_current_address_years",
@@ -104,20 +97,6 @@ const INTERNAL_FIELDS = [
         expected_length: [1, 2],
         tags: ["address", "residency_duration", "current"],
         synonyms: ["time at address", "years at address", "address duration"]
-    },
-    {
-        key: "previous_address",
-        type: "string",
-        expected_length: [10, 200],
-        tags: ["address", "previous_address"],
-        synonyms: ["previous address", "last address"]
-    },
-    {
-        key: "previous_address_postcode",
-        type: "string",
-        expected_length: [5, 8],
-        tags: ["address", "postcode", "previous"],
-        synonyms: ["previous postcode", "last postcode"]
     },
     {
         key: "employment_status",
@@ -128,7 +107,7 @@ const INTERNAL_FIELDS = [
     },
     {
         key: "employer_name",
-        type: "string",
+        type: "letters",
         expected_length: [2, 100],
         tags: ["employment", "employer"],
         synonyms: ["employer", "company name", "employer name"]
@@ -211,13 +190,6 @@ const INTERNAL_FIELDS = [
         synonyms: ["repayment type", "repayment", "interest only"]
     },
     {
-        key: "property_is_new_build",
-        type: "boolean",
-        expected_length: [1, 5],
-        tags: ["property_details", "new_build"],
-        synonyms: ["new build", "is new build"]
-    },
-    {
         key: "credit_commitments_monthly",
         type: "number",
         expected_length: [1, 6],
@@ -265,7 +237,35 @@ const INTERNAL_FIELDS = [
         expected_length: [1, 6],
         tags: ["expenses", "outgoings", "household"],
         synonyms: ["school fees", "education costs", "tuition fees"]
-    }
+    },
+    {
+        key: "uk_citizen",
+        type: "boolean",
+        expected_length: [1, 5],
+        tags: ["identity", "personal_details", "citizenship", "country"],
+        synonyms: ["uk citizen", "british citizen", "citizenship uk", "is uk citizen"]
+    },
+    {
+        key: "previous_address",
+        type: "numbers_and_letters",
+        expected_length: [10, 200],
+        tags: ["address", "previous_address"],
+        synonyms: ["previous address", "last address"]
+    },
+    {
+        key: "previous_address_postcode",
+        type: "numbers_and_letters",
+        expected_length: [5, 8],
+        tags: ["address", "postcode", "previous"],
+        synonyms: ["previous postcode", "last postcode"]
+    },
+    {
+        key: "property_is_new_build",
+        type: "boolean",
+        expected_length: [1, 5],
+        tags: ["property_details", "new_build"],
+        synonyms: ["new build", "is new build"]
+    },
 ];
 
 function tagScore(xTags = [], yTags = []) {
@@ -295,7 +295,14 @@ function tagScore(xTags = [], yTags = []) {
 }
 
 function typeScore(xType, yType) {
-    return xType === yType ? 1 : 0;
+    if (xType === yType) return 1;
+
+    // letters-only fits alphanumeric fields
+    if (xType === "letters" && yType === "numbers_and_letters") {
+        return 1;
+    }
+
+    return 0;
 }
 
 function lengthScore(actual, [min, max]) {
@@ -501,9 +508,9 @@ export function writeMatches(
             simplified[r.internal_key] = Number(r.total.toFixed(4));
         });
 
-        if (Object.keys(simplified).length > 0) {
+        // if (Object.keys(simplified).length > 0) {
         output[externalKey] = simplified;
-        }
+        // }
     }
 
     fs.writeFileSync(path, JSON.stringify(output, null, 2));

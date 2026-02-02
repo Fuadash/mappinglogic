@@ -1,11 +1,15 @@
 {
   "first_name": {
     "first_name": 1,
-    "last_name": 0.94
+    "last_name": 0.94,
+    "employer_name": 0.69
   },
   "last_name": {
     "last_name": 1,
-    "first_name": 0.94
+    "first_name": 0.94,
+    "employer_name": 0.69,
+    "previous_address_postcode": 0.57,
+    "previous_address": 0.557
   },
   "date_of_birth": {
     "date_of_birth": 1
@@ -20,23 +24,38 @@
     "number_of_dependants": 1
   },
   "national_insurance_number": {
-    "national_insurance_number": 0.8123
+    "national_insurance_number": 0.848
+  },
+  "email_address": {
+    "email_address": 1,
+    "current_address": 0.69,
+    "previous_address": 0.69
   },
   "mobile_phone_number": {
     "mobile_phone_number": 1
   },
+  "current_address": {
+    "current_address": 1,
+    "previous_address": 0.7377,
+    "email_address": 0.57
+  },
+  "postcode": {
+    "postcode": 1,
+    "previous_address_postcode": 0.7903
+  },
   "residential_status": {
-    "residential_status": 0.7977,
+    "residential_status": 0.9667,
     "application_type": 0.57
   },
   "time_at_current_address_years": {
-    "time_at_current_address_years": 0.7868,
+    "time_at_current_address_years": 0.837,
     "term_years": 0.57
   },
   "employment_status": {
     "employment_status": 1
   },
   "employer_name": {
+    "employer_name": 1,
     "first_name": 0.69,
     "last_name": 0.69
   },
@@ -44,8 +63,8 @@
     "job_title": 1
   },
   "annual_income": {
-    "annual_income": 0.975,
-    "other_income": 0.7318
+    "annual_income": 1,
+    "other_income": 0.7337
   },
   "other_income": {
     "other_income": 1,
@@ -55,13 +74,13 @@
     "mortgage_type": 0.9667
   },
   "application_type": {
-    "application_type": 0.95
+    "application_type": 1
   },
   "property_value": {
-    "property_value": 0.9667
+    "property_value": 1
   },
   "purchase_price": {
-    "purchase_price": 0.9667
+    "purchase_price": 1
   },
   "loan_amount_requested": {
     "loan_amount_requested": 0.9667
@@ -84,12 +103,12 @@
     "consent_to_credit_check": 0.7301
   },
   "source_of_deposit": {
-    "source_of_deposit": 0.8303,
+    "source_of_deposit": 0.7851,
     "nationality": 0.57,
     "country_of_birth": 0.57
   },
   "consent_to_credit_check": {
-    "consent_to_credit_check": 0.975,
-    "adverse_credit_history": 0.89
+    "adverse_credit_history": 0.88,
+    "consent_to_credit_check": 0.8263
   }
 }

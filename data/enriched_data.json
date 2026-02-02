@@ -68,7 +68,7 @@
     "value": "john.smith@email.com",
     "length": 20,
     "observed_type": "string",
-    "semantic_type": "unknown",
+    "semantic_type": "letters",
     "path": "contact_information.email_address"
   },
   "mobile_phone_number": {
@@ -86,7 +86,7 @@
     "value": "12 High Street, London",
     "length": 22,
     "observed_type": "string",
-    "semantic_type": "unknown",
+    "semantic_type": "numbers_and_letters",
     "path": "address_details.current_address"
   },
   "postcode": {
